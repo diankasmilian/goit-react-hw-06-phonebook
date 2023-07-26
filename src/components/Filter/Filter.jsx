@@ -1,6 +1,19 @@
-import PropTypes from 'prop-types';
+import { useSelector } from "react-redux";
+import { getFilter } from "redux/selectors";
+import { useDispatch } from "react-redux";
+import { setFilter } from "redux/filtersSlice";
 
-const Filter = ({ filter, handleFilterChange }) => {
+const Filter = () => {
+
+  const dispatch = useDispatch();
+
+  const handleFilterChange = e => {
+    const filterValue = e.target.value.toLowerCase();
+
+    dispatch(setFilter(filterValue))
+  };
+
+  const filter = useSelector(getFilter)
   return (
     <div>
       <input
@@ -11,11 +24,6 @@ const Filter = ({ filter, handleFilterChange }) => {
       />
     </div>
   );
-};
-
-Filter.propTypes = {
-  filter: PropTypes.string.isRequired,
-  handleFilterChange: PropTypes.func.isRequired,
 };
 
 export default Filter;

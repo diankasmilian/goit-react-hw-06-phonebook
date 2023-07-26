@@ -5,10 +5,23 @@ import ContactList from './ContactList/ContactList';
 import { Container } from './App.styled';
 import { nanoid } from 'nanoid';
 
+const App = () => {
+  return (
+    <Container>
+      <h2>Phonebook</h2>
+      <ContactForm />
+
+      <h2>Contacts</h2>
+      <Filter />
+      <ContactList />
+    </Container>
+  );
+};
+
 const LS_KEY = 'contacts';
 const data = JSON.parse(localStorage.getItem(LS_KEY));
 
-const App = () => {
+const App1 = () => {
   const [contacts, setContacts] = useState(data ?? []);
   const [filter, setFilter] = useState('');
 
