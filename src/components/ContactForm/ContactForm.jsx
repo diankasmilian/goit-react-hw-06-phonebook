@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { useDispatch } from "react-redux";
+import { useDispatch } from 'react-redux';
 import { addContact } from 'redux/contactSlice';
-import { getContacts } from "redux/selectors";
-import { useSelector } from "react-redux";
+import { getContacts } from 'redux/selectors';
+import { useSelector } from 'react-redux';
 import { Form } from './ContactForm.styled';
 
 const ContactForm = () => {
@@ -42,8 +42,6 @@ const ContactForm = () => {
       ? alert(`${name} or ${number} is already in contacts`)
       : dispatch(addContact(name, number));
 
-
-    
     reset();
   };
 
